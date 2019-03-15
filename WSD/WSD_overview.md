@@ -56,11 +56,7 @@ all-words exercises (which comprise all words occurring in a running text, and w
 
 2. 使用LSTM作LM[^6]，然后使用label propagation来预测[^7]。
 
-
-
 ###Knowledge-based methods
-
-
 
 [^1]: Butnaru, A. M. and Hristea, F. (no date) *ShotgunWSD: An unsupervised algorithm for global word sense disambiguation inspired by DNA sequencing*. Available at: http://ai.fmi.unibuc.ro/Home/Software. (Accessed: 3 March 2019).
 [^2]: Bhingardive, S. *et al.* (no date) *Unsupervised Most Frequent Sense Detection using Word Embeddings*. Available at: http://web.eecs.umich.edu/ (Accessed: 4 March 2019).
