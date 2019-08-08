@@ -67,6 +67,14 @@ CS224N提到了Anaphora和coref应该区分开来的理由：
 
 
 
+## 模型
+
+### END-END 找mention和做共指消解
+
+![image-20190730154613790](https://ws2.sinaimg.cn/large/006tNc79ly1g5hwviduu4j30wm0fidku.jpg)
+
+![image-20190730154638733](https://ws1.sinaimg.cn/large/006tNc79ly1g5hwvvagi5j30gb0f7jty.jpg)
+
 ### 开源软件
 
 - [Hugging Face 仅英文](https://github.com/huggingface/neuralcoref)
@@ -83,4 +91,6 @@ CS224N提到了Anaphora和coref应该区分开来的理由：
 [^7]:  H. Lee, Y. Peirsman, A. Chang, N. Chambers, M. Surdeanu, and D. Jurafsky, “Stanford’s Multi-Pass Sieve Coreference Resolution System at the CoNLL-2011 Shared Task,” Association for Computational Linguistics, 2011.
 [^8]: A. Rahman and V. Ng, “Resolving Complex Cases of Definite Pronouns: The Winograd Schema Challenge,” Association for Computational Linguistics, 2012.
 [^9]: K. Clark and C. D. Manning, “Improving Coreference Resolution by Learning Entity-Level Distributed Representations.”
+
+[^10]: Lee, K. *et al.* (2017) *End-to-end Neural Coreference Resolution*. Available at: https://arxiv.org/pdf/1707.07045.pdf (Accessed: 23 May 2019).
 

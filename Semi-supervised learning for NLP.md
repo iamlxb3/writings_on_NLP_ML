@@ -31,7 +31,11 @@ Datasets whose features naturally partition into two sets, and algorithms that u
 co-training的两个假设[^3]:
 
 - 一个样本可以被任意一个feature所学到的模型所区分出来。
+
+  > two views are individually sufficient for classification
 - feature之间是互相条件独立的。
+
+  > the two views are conditionally independent given the class.
 
 和一般的co-training选择样本的方式不同，[^4]提出了agreement-based co-training的方法，把每次选中样本对模型的提升效果也考虑了进来。提出agreement-based的motivation文中也有提到，"Our agreement-based co-training results support the theoretical arguments of Abney (2002) and Dasgupta et al. (2002), that directly maximising the agreement rates between the two taggers reduces generalisation error. "
 

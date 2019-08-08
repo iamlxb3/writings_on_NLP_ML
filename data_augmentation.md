@@ -10,9 +10,11 @@
 
  [^3] 中提出了机器翻译中文本增强的方法，主要替换低频词，然后选取N个低频词，用LM打分，再选取最通顺的低频词。其中也提到了LM打分对生成句子的影响：
 
-> While using a large LM to substitute words with rare words mostly re- sults in grammatical sentences, this does not mean that the meaning of the original sentence is pre- served. Note that meaning preservation is not an objective of our approach.
+> While using a large LM to substitute words with rare words mostly results in grammatical sentences, this does not mean that the meaning of the original sentence is preserved. Note that meaning preservation is not an objective of our approach.
 
-### 简单的文本增强的做法
+> Data augmentation can be performed in data-space or feature-space. We found that it was better to perform data augmentation in *data-space*, as long as label preserving transforms are known. [^5]
+
+### 简单的文本增强的做法[^4]
 
 - 随机增加词
 - 随机删词
@@ -30,4 +32,6 @@
 
 [^1]: Q. Xie, Z. Dai, E. Hovy, M.-T. Luong, and Q. V Le, “Unsupervised Data Augmentation.”
 [^2 ]:  X. Zhang and Y. Lecun, “Text Understanding from Scratch.”
-[^3]: [1] M. Fadaee, A. Bisazza, and C. Monz, “Data Augmentation for Low-Resource Neural Machine Translation,” pp. 567–573.
+[^3]:  M. Fadaee, A. Bisazza, and C. Monz, “Data Augmentation for Low-Resource Neural Machine Translation,” pp. 567–573.
+[^4]: J. Wei and K. Zou, “EDA: Easy Data Augmentation Techniques for Boosting Performance on Text Classification Tasks,” 2019.
+[^5]: Understanding data augmentation for classification: when to warp? https://arxiv.org/pdf/1609.08764.pdf
