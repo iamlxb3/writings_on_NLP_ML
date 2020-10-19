@@ -10,44 +10,44 @@ Literature of metric learning can be roughly divided into two categories: one th
 
 One traditional method of the first category is learning with Mahalanobis distance. It linearly projects the data to a new space with higher discrimination power. Although the method can be solved in convex optimization, the linear transformation has limited representation capabilities. 
 
-![image-20200506151306699](https://tva1.sinaimg.cn/large/007S8ZIlly1genn6fzbk9j30hj01t0sq.jpg)
+![image-20200506151306699](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur86akr3j30hj01twee.jpg)
 
 Unlike those linear models, deep learning can better interpret non-linear properties in data[^1]. Contrastive loss with Siamese network[^5] uses pairs of similar and dissimilar samples to encode distance relationship, but it has drawbacks that positive samples and negative samples are optimized independently. 
 
-![image-20200506152926843](/Users/jiashupu/writings_on_NLP_ML/image-20200506152926843.png)
+![image-20200506152926843](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur892q0tj30fx0cyaah.jpg)
 
 ​                                                                         Figure. Siamese Architecture
 
 To address the above issue, Triplot loss[^6] is proposed, which consists of one anchor sample, one positive sample and one negative sample.
 
-![image-20200506154739880](/Users/jiashupu/writings_on_NLP_ML/image-20200506154739880.png)
+![image-20200506154739880](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur8be5nzj30fm0i1t95.jpg)
 
 ​																Figure. Triplot Net Architecture
 
-![image-20200506155000695](/Users/jiashupu/writings_on_NLP_ML/image-20200506155000695.png)
+![image-20200506155000695](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur8dsnd4j30eh071q3r.jpg)
 
 ​															  Figure. Triplot Loss (left) vs N-pair loss (right)
 
  Similar approaches include Quadruplet loss[^11] and N-pair loss [^10].  Built on above mentioned methods, lifted structured feature embedding[^12] replace the hinge loss with a smooth loss using exponential weighting, aiming to push all negative point farther than a margin.
 
-![image-20200506200924449](/Users/jiashupu/writings_on_NLP_ML/image-20200506200924449.png)
+![image-20200506200924449](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur8g15gsj30g6046q36.jpg)
 
 ​															Figure. lifted structured feature embedding
 
  Angular loss [^13] improve on the basis of N-pair loss and provide scale invariance on the embedding. 
-![image-20200506151306699](https://tva1.sinaimg.cn/large/007S8ZIlly1gennimiouhj30hj01t0sq.jpg)
+![image-20200506151306699](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur8igtxrj30hj01twee.jpg)
 
 Unlike those linear models, deep learning can better interpret non-linear properties in data [[1]](#1). Contrastive loss with Siamese network [[5]](#5) uses pairs of similar and dissimilar samples to encode distance relationship, but it has drawbacks that positive samples and negative samples are optimized independently. 
 
-![Figure. Siamese Architecture](https://tva1.sinaimg.cn/large/007S8ZIlly1gennirx4cxj30fx0cywf2.jpg)
+![Figure. Siamese Architecture](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur8kr6tuj30fx0cydg4.jpg)
 <center>Figure. Siamese Architecture [[2]](#2) </center>
 
 To address the above issue, Triplot loss [[6]](#6) is proposed, which consists of one anchor sample, one positive sample and one negative sample.
 
-![image-20200506154739880](https://tva1.sinaimg.cn/large/007S8ZIlly1gennistbfqj30fm0i174y.jpg)
+![image-20200506154739880](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur8oi58hj30fm0i1zkm.jpg)
 <center>Figure. Triplot Net Architecture</center>
 
-![image-20200506155000695](https://tva1.sinaimg.cn/large/007S8ZIlly1gennit7vk5j30eh0713yx.jpg)
+![image-20200506155000695](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur8sr59hj30eh071q35.jpg)
 <center>Figure. Triplot Loss (left) vs N-pair loss (right)</center>
 
  Similar approaches include Quadruplet loss [[11]](#11) and N-pair loss [[10]](#10).  Built on above mentioned methods, lifted structured feature embedding [[12]](#12) replace the hinge loss with a smooth loss using exponential weighting, aiming to push all negative point farther than a margin.
@@ -56,44 +56,43 @@ To address the above issue, Triplot loss [[6]](#6) is proposed, which consists o
 <center>Figure. lifted structured feature embedding</center>
 
  Angular loss [[13]](#13) improve on the basis of N-pair loss and provide scale invariance on the embedding. 
->>>>>>> 3e051ed745498d755ad350684499f25271c7cb55
 
 However, they all face the same problem: data has to be prepared before training. Sampling method includes hard sampling and semi-hard sampling.
 
 
-![image-20200506153839656](/Users/jiashupu/writings_on_NLP_ML/image-20200506153839656.png)
+![image-20200506153839656](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur93njdaj309p09n74o.jpg)
 
 ​																				Figure. Sample strategy [^1]
 
 Structured clustering loss[^7], softmax loss[^8]do not require **data preparation**. Clustering loss aims to find a representation which leads to a clustering result being as close as possible to the actual label, and it also incorporates NMI in the loss function; the motivation is to overcome the downsides of local metric learning, which is shown in below figures.
 
-![image-20200506155736703](/Users/jiashupu/writings_on_NLP_ML/image-20200506155736703.png)
+![image-20200506155736703](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur96cg4nj30gx0amdhy.jpg)
 
-![image-20200506155752048](/Users/jiashupu/writings_on_NLP_ML/image-20200506155752048.png)
+![image-20200506155752048](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur99j7srj30h30e8778.jpg)
 
 Although literatures of Siamese-network and others claimed better results, their superiority is not fully explained, [^8] argued that , in contrary to what is claimed in each paper, optimizing a softmax classifier can yield significant better result in many settings, which question the necessity to prepare data and learning a new representation by a Siamese like network; the author hypothesizes the unstable training of Siamese like network may contribute to the inferior performance because negative samples are changing each round  while the whole training data remain fixed for the softmax classifier.
 
 Prototypical loss and proxy loss [^4]compute a representation point for class as "proxy" point; samples used for computing are sampled randomly so the cost of **data preparation** process is quite trivial. A soft-max is formed over classes, which is optimized based on the euclidean distance in the new transformed space. Because proxy points are fewer than samples, strong regularization are needed to avoid overfitting.
 
-![image-20200507102009979](/Users/jiashupu/writings_on_NLP_ML/image-20200507102009979.png)
+![image-20200507102009979](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur9chhzhj30cy02e0ss.jpg)
 
 ## Intra-class variants are considered
 
 The first category tries to squeeze all samples of one class to a single point, disregarding intra-class variants. [^14] proposed magnet loss which tries to separate dense region while retaining intra-class variants.
 
-![image-20200506200132414](/Users/jiashupu/writings_on_NLP_ML/image-20200506200132414.png)
+![image-20200506200132414](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur9ejye8j30wr0e7qia.jpg)
 
-![image-20200506200048689](/Users/jiashupu/writings_on_NLP_ML/image-20200506200048689.png)
+![image-20200506200048689](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur9hm9gkj30s80caaek.jpg)
 
  [^15] proposed ranked list loss that learns a hyper-sphere for each class by constraining the distance of all positive samples below a certain threshold while pushing those neg samples farther away.
 
-![image-20200506201347132](/Users/jiashupu/writings_on_NLP_ML/image-20200506201347132.png)
+![image-20200506201347132](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur9ksx4vj30yu089jt4.jpg)
 
  [^18] suggested an assumption: embedding features of the samples of the same classes consists of two parts; one that represents intra-class invariance and the other represents intra-class variance which obeys the identical distribution across different classes. By introducing a VAE-like generator, the intra-class variance is represented by a multi-variational Gaussian distribution, from which synthetic samples are generated. And those samples are added to the loss function to improve generalization. The motivation is that simple samples have little contribute to decision boundary, but can be utilized to learn a proper intra-class variance.
 
 An overview of loss functions:
 
-![image-20200507094314520](/Users/jiashupu/writings_on_NLP_ML/image-20200507094314520.png)
+![image-20200507094314520](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur9nl0cbj30mj0hhdih.jpg)
 
 ## Other methods
 
@@ -101,7 +100,7 @@ The essence of Ensemble learning[^4][^16] is to form a strong model with many we
 
 Methods mentioned above are all supervised,  [^3] proposed a way of **unsupervised representation learning**. Instead of optimizing weights, the model (Siamese network) directly output features and distances of intra-class and inter-class are minimized and spread out respectively. The training data is compose as follows: the positive samples are constructed by typical image augmentation method while negative samples are randomly chosen.
 
-![image-20200506130718432](/Users/jiashupu/writings_on_NLP_ML/image-20200506130718432.png)
+![image-20200506130718432](https://tva1.sinaimg.cn/large/007S8ZIlly1gjur9pxjr7j30bx02rglm.jpg)
 
 ## Reference
 

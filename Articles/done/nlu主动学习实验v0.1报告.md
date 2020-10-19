@@ -17,21 +17,21 @@
 
 此实验的模型结构与nlu在线训练的模型完全一致，采用了bert+fasttext抽特征，之后训练下游分类器的方法，并且结合了ensemble的方法。示意图如下：
 
-![image-20191030110555336](/Users/jiashupu/writings_on_NLP_ML/image-20191030110555336.png)
+![image-20191030110555336](https://tva1.sinaimg.cn/large/007S8ZIlly1gjuri8r5xoj30hb070mxm.jpg)
 
 ### 结果与分析
 
 此实验为分类任务，以下为测试集上的结果，其中annotate，origin，write分别代表标注的数据，原始数据及创作的数据。图标的x轴为置信度的阈值，三种图中的y轴分别为正样本的marco_f1，负样本的f1，及两者平均的f1。
 
-![marco_f1](/Users/jiashupu/writings_on_NLP_ML/marco_f1-2400740.png)
+![marco_f1](https://tva1.sinaimg.cn/large/007S8ZIlly1gjuridua6oj30hs0dc0tf.jpg)
 
 ​              图1. 正样本的marco_f1值，标注数据的提升非常有限，而创作数据在阈值高时的提升非常明显
 
-![other_marco_f1](/Users/jiashupu/writings_on_NLP_ML/other_marco_f1.png)
+![other_marco_f1](https://tva1.sinaimg.cn/large/007S8ZIlly1gjurign0kuj30kb0ejjsj.jpg)
 
 图2. 负样本的f1值，标注数据的提升很明显，而创作数据甚至在置信度低时不如原始语料，可能的原因是负采样   比例下降
 
-![avg_marco_f1](/Users/jiashupu/writings_on_NLP_ML/avg_marco_f1.png)
+![avg_marco_f1](https://tva1.sinaimg.cn/large/007S8ZIlly1gjurihjgspj30hs0dcq3r.jpg)
 
 图3. 正样本与负样本平均marco_f1值，总体来说在置信度低时标注数据占优势，在置信度高时创作语料提升显著
 
