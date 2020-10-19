@@ -2,7 +2,7 @@
 
 We are interested in the following problem: Suppose texts and clusters are corrected and labeled by users, how can we learn a distance metric that better respects those labeled data and yield a better clustering result afterward? Metric Learning maybe one answer.
 
-The goal of metric learning is to learn a new metric to bring similar objects closer while increasing the distance of dissimilar objects. In the process of constructing a high-quality SLU smalltalk dataset, a new distance metric can be learned from the previous human-labeled clusters in each turn. The term "metric learning" is somewhat misleading as most of the researches focus on "representation learning" rather than learning a new distance metric[^1].  
+The goal of metric learning is to learn a new metric to bring similar objects closer while increasing the distance of dissimilar objects. In the process of constructing a high-quality SLU smalltalk dataset, a new distance metric can be learned from the previous human-labeled clusters in each turn. The term "metric learning" is somewhat misleading as most of the researches focus on "representation learning" rather than learning a new distance metric [[1]](#1) .  
 
 Literature of metric learning can be roughly divided into two categories: one that projects samples of same class to a single point and the other one which respect the intra-class variants.
 
@@ -35,9 +35,30 @@ To address the above issue, Triplot loss[^6] is proposed, which consists of one 
 ​															Figure. lifted structured feature embedding
 
  Angular loss [^13] improve on the basis of N-pair loss and provide scale invariance on the embedding. 
+![image-20200506151306699](https://tva1.sinaimg.cn/large/007S8ZIlly1gennimiouhj30hj01t0sq.jpg)
+
+Unlike those linear models, deep learning can better interpret non-linear properties in data [[1]](#1). Contrastive loss with Siamese network [[5]](#5) uses pairs of similar and dissimilar samples to encode distance relationship, but it has drawbacks that positive samples and negative samples are optimized independently. 
+
+![Figure. Siamese Architecture](https://tva1.sinaimg.cn/large/007S8ZIlly1gennirx4cxj30fx0cywf2.jpg)
+<center>Figure. Siamese Architecture [[2]](#2) </center>
+
+To address the above issue, Triplot loss [[6]](#6) is proposed, which consists of one anchor sample, one positive sample and one negative sample.
+
+![image-20200506154739880](https://tva1.sinaimg.cn/large/007S8ZIlly1gennistbfqj30fm0i174y.jpg)
+<center>Figure. Triplot Net Architecture</center>
+
+![image-20200506155000695](https://tva1.sinaimg.cn/large/007S8ZIlly1gennit7vk5j30eh0713yx.jpg)
+<center>Figure. Triplot Loss (left) vs N-pair loss (right)</center>
+
+ Similar approaches include Quadruplet loss [[11]](#11) and N-pair loss [[10]](#10).  Built on above mentioned methods, lifted structured feature embedding [[12]](#12) replace the hinge loss with a smooth loss using exponential weighting, aiming to push all negative point farther than a margin.
+
+![image-20200506200924449](https://tva1.sinaimg.cn/large/007S8ZIlly1genniwhpjwj30g6046glt.jpg)
+<center>Figure. lifted structured feature embedding</center>
+
+ Angular loss [[13]](#13) improve on the basis of N-pair loss and provide scale invariance on the embedding. 
+>>>>>>> 3e051ed745498d755ad350684499f25271c7cb55
 
 However, they all face the same problem: data has to be prepared before training. Sampling method includes hard sampling and semi-hard sampling.
-
 
 
 ![image-20200506153839656](/Users/jiashupu/writings_on_NLP_ML/image-20200506153839656.png)
