@@ -1,16 +1,15 @@
-Title: Discovering New Intents via Constrained Deep Adaptive Clustering with Cluster Refinement [10/10]
+**Title: Discovering New Intents via Constrained Deep Adaptive Clustering with Cluster Refinement**
 
-Year: 2019
+ID: 4910fec58496606b1723308c31e9faf53bee787b
 
-Venue: AAAI
-
-Author: Lin, Ting-En Xu, Hua Zhang, Hanlei
+Has been read 5 times.
 
 Problem:  The definition of intents is versatile, the prior knowledge needs to be properly leveraged. Existing methods requires intensive feature engineering.
 
 Dataset: SNIPS, DBPedia, StackOverflow
 
 Contribution:
+
 1. The author purposed an end-to-end clustering method that is insensitive to the number of clusters.
 2. The method shows significant improvement on the above datasets compared with strong baselines.
 
@@ -33,7 +32,11 @@ Weakness:
 
 ---
 
-Title: Dialog Intent Induction with Deep Multi-View Clustering [4/10]
+Title: **Dialog Intent Induction with Deep Multi-View Clustering**
+
+ID: fc8ba1082c5c7311656f0127f75694d4098f29a0
+
+Has been read 4 times.
 
 Year: 2020
 
@@ -58,45 +61,34 @@ Weakness:
 
 ---
 
-Title: Deep unknown intent detection with margin loss
+**Title: Supervised Clustering of Questions into Intents for Dialog System Applications**
 
-Year: 2019
+ID: 9d2f9442e3226cc071ea09a9f7f1eaa0114714b2
 
-Author: Lin, Ting En Xu, Hua
+Has been read 1 times, still a bit confused
 
-Problem: Identifying the novel intent and discriminate the existing intent from the unlabeled data is challenging
+Problem:  detect intents of user questions
 
-Venue: ACL
+Dataset: 
 
-Dataset: SNIPS, ATIS (Airline Travel Information System) 2
+Contribution:
 
-Contribution: The author proposed a two-stage method for unknown intent detection. The first stage is to train BilSTM with margin loss and the second stage is to detect unknown intents by leveraging local outlier detector. It is based on the intuition that sample with local density than its neighbors has a higher chance of being unknown intents
+1. They claim annotated data can explicitly provide the notion of intent, in other words, to learn definitions from examples 
+2. Providing a tool to help dialog manager to build intent more easily
+3. Can dynamically cluster questions with the same semantics without any concept annotation.
+
+Method: 
+
+I didn't fully understand all the details. First the text's feature is extracted by some traditional means, like td-idf, etc. Then pair-wise similarity is caculated by a function, but in the paper that function is not mentioned. Next, a graph partition method is applied, and the resulting pseudo label served as latent variables, lastly Structural learner LSSVM is used to label "the sequence".
 
 Novelty:
 
-Merits:
+Merit: 
 
-Weakness:
+Weakness: 
 
-1. This method can only discriminate unknown intents from known ones, however, the possible intent structure in the unknown intents is not exploited.
+Other take aways:
 
----
-
-Title: Enhancement of Short Text Clustering by Iterative Classification [3/10]
-
-Year: 2020
-
-Author: Rakib, Md Rashadul Hasan Zeh, Norbert Jankowska, Magdalena Milios, Evangelos
-
-Problem: Clustering of short texts is challenging task
-
-Contribution: 
-
-The author proposed an iterative clustering process. In each iteration, a classifier is trained with non-outlier samples, then the outliers are reclustered by the classifier's prediction.
-
-Remark:
-
-I stopped reading this paper because its presentation is quite messy: the notation is not clear.
-
----
+1. In related works, the paper mentioned other two ways of data-driven model. The first method relies on tree structure  and maps a Natural Language query to it, but it has a weakness as new intent trees is required for new domains. The other way takes advantages of external knowledge bases such as Wikipedia and Freebase.
+2. 
 

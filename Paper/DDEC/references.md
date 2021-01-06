@@ -8,7 +8,6 @@
   pages = 	 "803-806"
 }
 
-
 @inproceedings{hsu2018multi,
   title={Multi-class classification without multi-class labels},
   author={Hsu, Yen-Chang and Lv, Zhaoyang and Schlosser, Joel and Odom, Phillip and Kira, Zsolt},
@@ -63,9 +62,9 @@
 }
 
 @article{strehl2002cluster,
-  title={Cluster ensembles---on},
+  title={Cluster ensembles---a knowledge reuse framework for combining multiple partitions},
   author={Strehl, Alexander and Ghosh, Joydeep},
-  journal={Journal of maxchine learning research},
+  journal={Journal of machine learning research},
   volume={3},
   number={Dec},
   pages={583--617},
@@ -121,6 +120,8 @@
   pages={31},
   year={2016}
 }
+
+The \textbf{outlier ratio} is the ratio of the size of injected outliers to the original size of $D_{ul}$.
 
 @inproceedings{perkins2019dialog,
   title={Dialog Intent Induction with Deep Multi-View Clustering},
@@ -195,3 +196,51 @@
     abstract = "Task-oriented dialog systems need to know when a query falls outside their range of supported intents, but current text classification corpora only define label sets that cover every example. We introduce a new dataset that includes queries that are out-of-scope{---}i.e., queries that do not fall into any of the system{'}s supported intents. This poses a new challenge because models cannot assume that every query at inference time belongs to a system-supported intent class. Our dataset also covers 150 intent classes over 10 domains, capturing the breadth that a production task-oriented agent must handle. We evaluate a range of benchmark classifiers on our dataset along with several different out-of-scope identification schemes. We find that while the classifiers perform well on in-scope intent classification, they struggle to identify out-of-scope queries. Our dataset and evaluation fill an important gap in the field, offering a way of more rigorously and realistically benchmarking text classification in task-driven dialog systems.",
 }
 
+@InProceedings{XLiu.etal:IWSDS2019,
+  author    = {Xingkun Liu, Arash Eshghi, Pawel Swietojanski and Verena Rieser},
+  title     = {Benchmarking Natural Language Understanding Services for building Conversational Agents},
+  booktitle = {Proceedings of the Tenth International Workshop on Spoken Dialogue Systems Technology (IWSDS)},
+  month     = {April},
+  year      = {2019},
+  address   = {Ortigia, Siracusa (SR), Italy},
+  publisher = {Springer},
+  pages     = {xxx--xxx},
+  url       = {http://www.xx.xx/xx/}
+}
+
+@inproceedings{fraj2019ensemble,
+  title={Ensemble method for multi-view text clustering},
+  author={Fraj, Maha and Hajkacem, Mohamed Aymen Ben and Essoussi, Nadia},
+  booktitle={International Conference on Computational Collective Intelligence},
+  pages={219--231},
+  year={2019},
+  organization={Springer}
+}
+
+@article{boongoen2018cluster,
+  title={Cluster ensembles: A survey of approaches with recent extensions and applications},
+  author={Boongoen, Tossapon and Iam-On, Natthakan},
+  journal={Computer Science Review},
+  volume={28},
+  pages={1--25},
+  year={2018},
+  publisher={Elsevier}
+}
+
+@article{kanungo2002efficient,
+  title={An efficient k-means clustering algorithm: Analysis and implementation},
+  author={Kanungo, Tapas and Mount, David M and Netanyahu, Nathan S and Piatko, Christine D and Silverman, Ruth and Wu, Angela Y},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={24},
+  number={7},
+  pages={881--892},
+  year={2002},
+  publisher={IEEE}
+}
+
+@article{murtagh2011ward,
+  title={Ward's hierarchical clustering method: Clustering criterion and agglomerative algorithm},
+  author={Murtagh, Fionn and Legendre, Pierre},
+  journal={arXiv preprint arXiv:1111.6285},
+  year={2011}
+}

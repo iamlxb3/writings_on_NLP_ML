@@ -1,0 +1,50 @@
+- It's the penultimate episode of the series tonight.
+- He saw action in the Marines, and his performance was exemplary.
+- They didn’t reap any benefits from that deal.
+- We won't have discussions with this group unless they eschew violence.
+- They have to dredge the canal regularly to keep it open.
+- The changes are seen as a prelude to wide-ranging reforms.
+- The entire project was meticulously planned.
+- Procedures had to be followed meticulously.
+- It is especially poignant that he died on the day before the wedding.
+- Some mushrooms look innocuous but are in fact poisonous.
+- Her paintings have a very tactile quality.
+- She made a brief foray into acting before becoming a teacher.
+- "What's his latest book about?" "Oh, the usual - the transience of love and the futility of life."
+- A peaceful solution would obviate the need to send a UN military force.
+- In retrospect, I think my marriage was doomed from the beginning.
+- isotropic: having a physical property which has the same value when measured in different directions.
+- anisotropic: having a physical property which has a different value when measured in different directions. An example is wood, which is stronger along the grain than across it.
+- She heard a faint, almost imperceptible cry.
+- The Eiffel Tower is a remarkable feat of engineering.
+- The club is believed to have paid in the vicinity of €3 million for Domingo.
+- News of the arrest perturbed her greatly.
+- The company has begun to look at how its workhorse, the 737, may develop in the future.
+- The country's most valuable commodities include tin and diamonds.
+- There is a paucity of information on the ingredients of many cosmetics.
+- She's very proud of her ancient royal lineage.
+- He’s soliciting funds to keep the library open.
+- Closing the factory would irrevocably alter the character of the local community for the worse.
+- He's either a hero or a villain, depending on your point of view.
+- The city is rapidly becoming the de facto center of the financial world.
+- He readily agreed to help.
+- Companies can't just ramp up their production capacity and expect to earn outsized profits.
+- The museum's collection includes artifacts dating back to prehistoric times.
+- This research seems to give/lend some validity to the theory that the drug might cause cancer.
+- Because she had no children of her own, her friend's son became a kind of surrogate child to her.
+- Taut writing or speech is controlled, clear, and short.
+- His grammar explanations are terribly convoluted.
+- The wartime austerity of my early years prepared me for later hardships.
+- His pomposity and arrogance became clear in the interview.
+- They were being unnecessarily pedantic by insisting that Berry himself, and not his wife, should have made the announcement.
+- colloquial speech
+- He writes in a formal and somewhat stilted style.
+- The novel deals with grand themes, but is never heavy or pretentious.
+- When she's in a bad mood she's obnoxious to everyone.
+- We have evidence to substantiate the allegations against him.
+- Characters in this novel are entirely fictitious.
+- How far the president will be able to translate his campaign rhetoric into action remains to be seen.
+- Talcott Parsons, a social scientist who was as revered for his influence on his field as he was ridiculed for the opacity of his prose.
+- No methods outperform all other method for all datasets
+- Overinterpret your data wildly, and consider what they might mean at those farthest fringes.
+- To identify issues that might trip us up later
