@@ -33,7 +33,7 @@ Supporting material:
 2. 复现代码
 3. 模型结构图
 
-
+----------
 
 我们的实验是在Massively Multiplayer Online Role-Playing Game (MMORPG)完成的，只有玩家在游戏中有动作，行为就会出现，因此这个方法也可以推广到其他类型的游戏中，比如Multiplayer Online Battle Arena (MOBA)，First-Person Shooter (FPS)等
 
