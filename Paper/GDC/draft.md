@@ -6,26 +6,47 @@ Track, Format, and Delivery Format
 
 Presentation Outline: 
 
-玩家的行为在各类游戏中无处不在，数据量庞大。比如在MMORPG中，玩家序列可能包含做新任务，打新副本等代表活跃度很高的行为，也可能包含卖装备、无所事事等预示着玩家对游戏失去兴趣的行为；对于后者，游戏方希望能提前干预，挽留那些想要离开的玩家；另外在FPS类游戏中，鼠标移动的轨迹也是一种行为序列，往往可以被用于外挂检测。在不同游戏中，玩家的行为可能都是某个下游任务的不可或缺的信息。
+我们报告的主题是如何利用机器学习，一种针对玩家行为序列的无监督预训练方法，来更好地了解玩家，给玩家提供更好的游戏体验。玩家的行为在各类游戏中无处不在，比如在MMORPG中，玩家序列可能包含做新任务，打新副本等代表活跃度很高的行为，也可能包含卖装备、无所事事等预示着玩家对游戏失去兴趣的行为；对于后者，游戏方会希望找出这些玩家，总结归纳他们失去兴趣的原因，不断优化游戏体验；另外在FPS类游戏中，鼠标移动的轨迹也是一种动作行为序列，往往可以被用于外挂检测。在不同游戏中，玩家的行为序列可能都对某一个下游任务的检测至关重要。
 
-针对上述任务，一般基于机器学习的方法会对不同的下游任务进行数据收集和标注工作，非常得耗时耗力，并且浪费了大量的无监督的玩家行为序列。基于此，我们提出了一种利用大规模无监督行为序列的方法，能够将行为表示为一个通用的表征，用于多个不同的下游任务，仅需要少量标注数据，其性能就能超越纯监督学习的训练方法10%以上。另外，此方法可以将标注成本降低到原来的10%以下。在JusticePC游戏的实验中，此方法能显著提升三个下游任务的性能，具有广阔的应用场景。
+针对上述下游任务，一般基于机器学习的方法会对不同的下游任务进行多次数据收集和标注工作，非常得耗时耗力。同时，大量无标注的玩家行为序列也没有得到很好的利用。我们提出了一种仅需要少量标注数据的无监督预训练方法，它能针对不同的行为序列提取出一个通用型更强的表示，用于多种下游任务。在报告中我们首先会介绍将这种方法从NLP领域迁移到游戏领域的动机，比较行为序列和自然语言的异同点，行为序列更长，没有语义分割。然后我们会分析直接照搬这套方法给行为序列建模会失败的原因，将从序列的异同和硬件条件不允许这两方面来说。
 
-报告主要包含三部分，第一部分，我们在游戏中对行为作无监督预训练任务的原因。第二部分，行为预训练和自然语言预训练的异同点：行为序列没有语义分割标签，长度不受控，预训练任务。第三部分，我们针对游戏中的行为特点，对无监督预训练做的调整，包括用BPE的方式做序列压缩和语义分割、订制基于课程学习的Mask Language model预训练任务。
+接着我们会着重介绍如何根据上述行为序列的特点来设计基于BPE的序列压缩的方法。另外，序列片段之间的关联可强可弱，直接套用自然语言中的Masked Language Modeling显然是不合适的，我们将介绍一种自适应式的预训练任务Curriculum Masked Language Modeling，他和MLM最大的不同是会根据训练的收敛速度动态调整mask probability，慢慢增大任务难度。之后，我们会介绍我们的方法在真实游戏（JusticePC）数据上的实验结果，在三个下游任务（流失检测、外挂检测和相似玩家发现）上，我们将展示5个以上strong baseline和我们模型比较的结果，包括reformer, longformer等等，实验表明了我们的方法很有效，性能上超越了纯监督学习的方法10%以上，并且能减少80%左右的标注成本。除了这些量化指标外，我们也会讨论预训练任务难易对于结果有何影响，以及如何如何设定预训练任务的超参数。
+
+DeepL translation -> grammly:
+
+Our presentation is about how to use a deep learning technique, unsupervised pre-training applied to player behavior sequences, to better understand players and provide them with a more enjoyable game experience. Player behavior is ubiquitous in all kinds of games. For example, in MMORPGs, actions like actively accepting new assignments or upgrading wildly may indicate the high spirit in the game while behaviors liking selling weapons or wandering aimlessly may indicate loss of interest; in the latter case, the game provider expects to identify these players in time, uncover the reasons and continuously optimize the game experience. Besides, in FPS games, the trajectory of mouse movement is also a sequence of behaviors, which can often be used for plug-in detection. In different types of games, the player's behavior sequence may all be crucial to a downstream task and a certain type of detection.
+
+To improve the performance of downstream tasks in games, more and more machine learning-based approaches are introduced. However, incorporating them into a specific task often requires specific training data, which means the data collection and labeling procedure can be repeated many times. The entire process is quite time-consuming and labor-intensive. Meanwhile, a large number of unlabeled behavior sequences are left unused. To address these issues, we propose an unsupervised pre-training method that exploits those unlabeled behavior sequences. It aims to extract more general representations, to reduce the cost of labeling, and to enhance the performance of multiple downstream tasks at the same time. Its spirit is "train once, extract everywhere".
+
+In our presentation, we will first introduce the motivation for migrating this approach from the Natural Language Processing (NLP) to the game domain, comparing the similarities and differences between behavioral sequences and natural language. Then we will analyze the reasons why directly copying this approach from NLP to model behavioral sequences will fail, both in terms of the sequence discrepancies and the hardware limitations. Afterward, we will focus on introducing the highlights of our method, including a sequence compression method and a special pre-training task. The sequence compression method is based on Byte Pair Encoding (BPE); it can also segment sequences as a byproduct of compression. The special pretraining-task is called Curriculum Masked Language Modeling. Dynamic masking probability is introduced because we reckon setting a constant value may limit the learning potential of our model, for example, setting the value at 0.15 may be too easy a task if a segment can be effortlessly recovered from its context. In the last section, experimental results and discussions are presented; the real-world experimental data are from an MMORPG JusticePC. On three downstream tasks (churn detection, plugin detection, and similar player discovery), we will show the results of our method along with 5 strong baselines, including reformer, longformer, etc. Our approach outperforms purely supervised learning methods by more than 10% concerning performance and reduces the labeling cost by 80%. In addition to these quantitative analyses, we will also discuss how the difficulty of the pretraining task may affect performances.
+
+---
 
 Session Description (类似于abstract):
 
-玩家的行为在各类游戏中无处不在，数据量庞大。目前机器学习可以检测这些数据并对特定任务作出判断，比如外挂检测或者在玩家对游戏失去兴趣时及时干预，重燃玩家的激情。基于监督学习的方法依赖于大规模的标注语料，需要投入不菲的资金和大量人力；与此同时，大量的无监督数据缺也没有被很好地利用。我们将语言模型的无监督预训练迁移到行为序列的预训练中，基于BPE做了序列压缩和语义分割，特殊订制了预训练任务，并且在MMRORPG JusticePC上做了实验，我们发现此方法能显著提升下游任务的性能、极大降低标注成本，在多个任务上都有良好的表现，有广阔的应用场景。
+玩家的行为序列在各类游戏中无处不在，数据量庞大。目前部分游戏会利用这些数据和机器学习算法来提升玩家的游戏体验，比如进行外挂检测或者在玩家对游戏失去兴趣时及时分析原因或进行干预，让玩家能重新享受游戏。但是基于监督学习的方法依赖于大规模的标注语料，需要投入不菲的资金和大量人力；与此同时，大量的无标签数据缺也没有得到很好的利用。我们提出了一种针对玩家行为序列的无监督预训练方法，在提升下游任务性能的同时，能大幅减少标注成本。此方法用BPE做了序列压缩和语义分割，并且特殊订制了Curriculum Masked Language Modeling的预训练任务，在真实游戏中显著提升了外挂检测、流失预测等任务的性能。
+
+DeepL translation -> grammly:
+
+Player behavior sequences are ubiquitous in all kinds of games and the amount of data is usually huge. Currently, such data can be harnessed by machine learning algorithms to improve players' gaming experience, such as performing bot detection or intervening in time when players lose interest in the game so that they can enjoy the game again. However, supervised learning-based approaches rely on large-scale annotated data, which requires significant investment and manpower; at the same time, the large amount of unlabeled data is left unused. We propose an unsupervised pre-training method for player behavior sequences, to reduce the annotation cost and improve the performance of downstream tasks. Our method involves a sequence compression and semantic segmentation procedure with BPE, and a novel pre-training task, Curriculum Masked Language Modeling. The strength of the method is presented according to its performance on three downstream tasks of an MMORPG game.
+
+---
 
 Attendee Takeaway: 
 
-1. 行为序列和自然语言的区别
-2. 如何将自然语言中的预训练方法迁移到游戏领域，包含基于BPE的序列压缩和语义分割方法、如何设计特殊的预训练任务
-3. 实验结果，在多个下游任务上GameBert的性能。
+如何将自然语言中的预训练方法迁移到玩家行为序列的建模，包括如何用BPE进行行为序列压缩和语义分割，如何设计特殊的预训练任务。实验结果方面，我们将展示5种以上的预训练模型在3个预训练任务上的性能，分析预训练任务超参对结果的影响。
+
+DeepL translation -> grammly:
+
+How to migrate unsupervised pre-training methods in natural language processing to model player behavior, including how to perform behavior sequence compression and semantic segmentation with BPE. Insights from experiments will also be discussed, including the impact of the difficulty of pre-training task and the probability of masking.
+
+---
 
 Intended Audience:
 
-1. researchers on the topic of user/player behaviour profiling or downstream task that require behaviour profiling.
-2. researchers and engineers who works on user behavior problems in Gaming development.
+Researchers on the topic of user/player behavior profiling or downstream task that require behavior profiling. Background knowledge of deep learning is required.
+
+---
 
 Supporting material:
 
